@@ -12,9 +12,10 @@ describe "StaticPages" do
     end
 
     it "should have the right title" do
-    visit '/static_pages/home'
-    expect(page).to have_title("#{base} | Home")
+      visit '/static_pages/home'
+      expect(page).to have_title("#{base} | Home")
     end
+
   end
 
   describe "help page" do
@@ -28,6 +29,7 @@ describe "StaticPages" do
     visit '/static_pages/help'
     expect(page).to have_title("#{base} | Help")
     end
+
   end
 
   describe "about page" do
