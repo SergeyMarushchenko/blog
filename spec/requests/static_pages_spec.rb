@@ -1,63 +1,35 @@
 require 'spec_helper'
 
 describe "StaticPages" do
-
-  let(:base) {"Blog"}
+  subject {page}
+  let(:base) {"Sergey's Blog"}
   
   describe "home page" do
+    before {visit root_path}
 
-    it "should have the content 'Blog'" do
-      visit '/static_pages/home'
-      expect(page).to have_content('Home')
-    end
-
-    it "should have the right title" do
-      visit '/static_pages/home'
-      expect(page).to have_title("#{base} | Home")
-    end
-
+    it {should have_content('Blog')}
+    it {should have_title("#{base}")}
   end
 
   describe "help page" do
+    before {visit help_path}
 
-    it "should have the content 'Help'" do
-      visit '/static_pages/help'
-      expect(page).to have_content('Help')
-    end
-
-    it "should have the right title" do
-    visit '/static_pages/help'
-    expect(page).to have_title("#{base} | Help")
-    end
-
+    it {should have_content('Help')}
+    it {should have_title("#{base} | Help")}
   end
 
-  describe "about page" do
+  describe "About Us page" do
+    before {visit about_path}
 
-    it "should have the content 'About us'" do
-      visit '/static_pages/about'
-      expect(page).to have_content('About Us')
-    end
-
-    it "should have the right title" do
-    visit '/static_pages/about'
-    expect(page).to have_title("#{base} | About Us")
-    end
-
+    it {should have_content('About Us')}
+    it {should have_title("#{base} | About Us")}
   end
 
-  describe "contact page" do
+  describe "Contact page" do
+    before {visit contact_path}
 
-    it "should have the content 'Contact'" do
-      visit '/static_pages/contact'
-      expect(page).to have_content('Contacts')
-    end
-
-    it "should have the right title" do
-    visit '/static_pages/contact'
-    expect(page).to have_title("#{base} | Contacts")
-    end
-
+    it {should have_content('Contact')}
+    it {should have_title("#{base} | Contact")}
   end
 
 end
