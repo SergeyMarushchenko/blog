@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe User do
+describe "User" do
   before {@user = User.new(name: "user_name", email: "user@email.ru", password: "password", password_confirmation: "password")}
   subject {@user}
   
@@ -9,6 +9,8 @@ describe User do
   it {should respond_to(:password_digest)}
   it {should respond_to(:password)}
   it {should respond_to(:password_confirmation)}
+  it {should respond_to(:remember_token)}
+  it {should respond_to(:authenticate)}
   it {should be_valid}
 
   describe "if name is not entered" do
@@ -30,23 +32,8 @@ describe User do
     it {should_not be_valid}
   end
 
-  describe "when email format is incorrect" do
-    it "should be incorrect" do
-      %W[mail@mail,ru mail.ru mail@mail mail@mail*mail.ru].each do |adress|
-        @user.email = adress
-        expect(@user.email).not_to be_valid
-      end
-    end
+  describe "remember token" do
+    before {@user.save}
+    its(:remember_token) {should_not be_blank}
   end
-
-  describe "when email format is correct" do
-    it "should be correct" do
-      %W[mail@mail.ru ma.il@mail.ru ma-il@mail.ru].each do |adress|
-        @user.email = adress
-        expect(@user.email).to be_valid
-      end
-    end
-  end
-
-
 end
