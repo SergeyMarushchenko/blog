@@ -7,6 +7,8 @@ gem 'sprockets', '~> 2.8', '<= 2.11.0'
 gem 'pg', '0.15.1'
 gem 'bcrypt-ruby', '3.1.2'
 gem 'factory_girl_rails', '4.2.1'
+gem 'will_paginate', '3.0.4'
+gem 'bootstrap-will_paginate', '0.0.9'
 
 group :development, :test do
   #gem 'sqlite3', '1.3.8'
