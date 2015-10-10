@@ -30,6 +30,14 @@ module SessionsHelper
     self.current_user = nil
   end
 
+  def signed_in_user
+    unless signed_in?
+      store_location
+      flash[:notice] = "Please, sign in"
+      redirect_to signin_path
+    end
+  end
+
   def store_location
     session[:return_to] = request.url if request.get?
   end

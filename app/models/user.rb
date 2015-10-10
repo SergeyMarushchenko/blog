@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  has_many :posts, dependent: :destroy
+
+
   validates :name, presence: true, length: {maximum: 50, minimum: 2}
 
   VALID_EMAIL_FORMAT = /\A[a-z]+@[a-z]+\.[a-z]+\Z/i
@@ -12,6 +15,10 @@ class User < ActiveRecord::Base
   validates :password, length: {minimum: 6}
 
   before_create :create_remember_token
+
+  def feed
+    Post.where("user_id = ?", id)
+  end
 
   def User.new_remember_token
     SecureRandom.urlsafe_base64

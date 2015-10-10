@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @posts = @user.posts.paginate(page: params[:page], per_page: 5)
   end
 
   def create
@@ -55,13 +56,7 @@ class UsersController < ApplicationController
       #redirect_to signin_url, notice: "Please, sign in" unless signed_in? 
     #end
 
-    def signed_in_user
-      unless signed_in?
-        store_location
-        flash[:notice] = "Please, sign in"
-        redirect_to signin_path
-      end
-    end
+
 
     def correct_user
       @user = User.find(params[:id])
