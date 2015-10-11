@@ -1,5 +1,6 @@
 <%= form_for(@post) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
+  <h1> Create a new post: </h1>
   <div class="title_field">
     <%= f.text_area :title, placeholder: "Enter the post title..." %>
   </div>
