@@ -11,10 +11,11 @@ class UsersController < ApplicationController
   def new
     @user = User.new
   end
-
+ 
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.paginate(page: params[:page], per_page: 5)
+    @all_comments = Comment.all
   end
 
   def create
@@ -44,6 +45,10 @@ class UsersController < ApplicationController
     User.find(params[:id]).destroy
     flash[:success] = "User deleted."
     redirect_to users_path
+  end
+
+  def my_comments
+    user_comments=Comment.find_by(user_id: @user.id)
   end
 
   private

@@ -4,9 +4,10 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
+
     if @post.save
       flash[:success] = "Post created!"
-      redirect_to root_url
+      redirect_to user_path(current_user)
     else
       render 'static_pages/home'
       @feed_items = []
@@ -15,7 +16,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to root_path
+    redirect_to user_path(current_user)
   end
 
   private
