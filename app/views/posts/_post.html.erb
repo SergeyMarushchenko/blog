@@ -8,8 +8,8 @@
     <%= link_to "delete", post, method: :delete, data: { confirm: "Are you sure?" },title: post.title %>
   <% end %>
 
-<% @comments = @all_comments.where(post_id: post.id) %>
-<%= render @comments %>
+<% @post_comments = @all_comments.where(post_id: post.id) %>
+<%= render @post_comments %>
 
 <br>
   <%= form_for([post, post.comments.build]) do |f| %>

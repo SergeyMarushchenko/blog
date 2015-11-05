@@ -1,6 +1,6 @@
 
   <ul>
-    <li style = "list-style-type: none" >
+    <li style = "list-style-type: none" comment_id="<%=comment.id %>" >
       <%= 
          if comment.user.avatar?
             image_tag comment.user.avatar.url(:small)
@@ -18,7 +18,7 @@
     <div class="comment">
     <%= comment.content %>
     <% if current_user?(comment.user) %>
-      <%= link_to "delete", comment, method: :delete, data: { confirm: "Are you sure?" } %>
+      <span class="deleteAction" >удалить</span>
     <% end %>
     </div>
     </li>
