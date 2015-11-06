@@ -4,13 +4,20 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
-
+    @user = current_user
+    @feed_items = current_user.feed
+    
+    respond_to do |format|
     if @post.save
-      redirect_to user_path(current_user)
+      format.html { redirect_to user_path(current_user) }
+      format.js
+      format.json {}
     else
-      render 'static_pages/home'
-      @feed_items = []
+      format.html { render 'static_pages/home' 
+                              @feed_items = [] }
+      format.json { }
     end
+  end
   end
 
   def destroy
