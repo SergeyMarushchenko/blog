@@ -1,6 +1,6 @@
 jQuery(function($) {
 	
-	$('.deleteAction').click(function() {
+	$(document).on('click', '.deleteComment', (function() {
 		var current_comment_li = $(this).parents('li')[0];
 
 			$.ajax({
@@ -12,6 +12,6 @@ jQuery(function($) {
 				}
 			});
 
-	});
+	}));
 
 });

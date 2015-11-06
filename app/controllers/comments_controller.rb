@@ -6,12 +6,18 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.create(comment_params)
     @comment.user_id = current_user.id
+    @posts = Post.where("user_id=?", current_user.id )
 
+    respond_to do |format|
     if @comment.save
-      redirect_to :back
+      format.html { redirect_to :back }
+      format.js
+      format.json { }
     else
-      flash[:danger] = "error, comment can't be saved, probably it's too long"
-      redirect_to :back
+      format.html { flash[:danger] = "error, comment can't be saved, probably it's too long"
+                    redirect_to :back }
+      format.json {}
+    end
     end
   end
 
