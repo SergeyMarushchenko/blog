@@ -22,9 +22,9 @@
   <div class="span8">
     <% if @user.posts.any? %>
       <h3>Posts (<%= @user.posts.count %>)</h3>
-      <ol class="posts">
+      <ul id="posts" style="list-style: none;">
         <%= render @posts %>
-      </ol>
+      </ul>
       <%= will_paginate @posts %>
     <% end %>
   </div>

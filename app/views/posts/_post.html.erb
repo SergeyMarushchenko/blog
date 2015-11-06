@@ -9,14 +9,17 @@
   <% end %>
 
 <% @post_comments = @all_comments.where(post_id: post.id) %>
-<%= render @post_comments %>
 
+
+<div id='comments'>
+	<%= render post.comments %>
+</div>
 <br>
-  <%= form_for([post, post.comments.build]) do |f| %>
-    <%= f.text_area :content, placeholder: "write your comment here (max 200 symbols)" %>
-    <p>
-      <%= f.submit "Comment it!", class: "btn btn-small" %>
-    </p>
-  <% end %>
+
+	<%= form_for([post, post.comments.build], remote: true) do |f| %>
+		<%= f.text_area :content, placeholder: "enter comment here" %>
+		<%= f.submit "Comment!", class: "btn"%>
+	<% end %>
+
 </li>
 

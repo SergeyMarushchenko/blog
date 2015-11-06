@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
 
+  respond_to :html, :js
+
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.create(comment_params)
@@ -10,7 +12,6 @@ class CommentsController < ApplicationController
     else
       flash[:danger] = "error, comment can't be saved, probably it's too long"
       redirect_to :back
-
     end
   end
 
