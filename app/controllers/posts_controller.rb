@@ -3,6 +3,10 @@ class PostsController < ApplicationController
   before_action :correct_user, only: :destroy
   respond_to :html, :js
   
+  def new
+    @post = Post.new
+  end
+
   def create
     @post = current_user.posts.new(post_params)
     @user = current_user

@@ -8,7 +8,7 @@ jQuery(function($) {
 				type: 'POST',
 				data: {_method: 'DELETE'},
 				success: function() {
-					$(current_post_li).fadeOut(200);
+					$(current_post_li).slideUp(300);
 				}
 			});
 

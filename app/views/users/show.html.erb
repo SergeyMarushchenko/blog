@@ -6,7 +6,15 @@
       
       <section>
       <% if @posts.first.user==current_user %>
-        <%= render partial: 'posts/post_form' %>
+        
+        <div id="new_post">
+          <%= link_to 'New Post', new_post_path, remote: true %>
+        </div>
+
+        <div id="post_form", style="display:none;">
+          <%= render partial: 'posts/post_form' %>
+        </div>
+
       <% end %>
       </section>
     </aside>
