@@ -7,8 +7,8 @@
       <section>
       <% if @posts.first.user==current_user %>
         
-        <div id="new_post">
-          <%= link_to 'New Post', new_post_path, remote: true %>
+        <div id="new_post" class="btn btn-large btn-info">
+          Create a New Post
         </div>
 
         <div id="post_form", style="display:none;">

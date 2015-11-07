@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :signed_in_user
   before_action :correct_user, only: :destroy
-  respond_to :html, :js
+  #respond_to :html, :js
   
   def new
     @post = Post.new
