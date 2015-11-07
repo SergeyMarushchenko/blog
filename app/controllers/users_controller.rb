@@ -13,9 +13,9 @@ class UsersController < ApplicationController
   end
  
   def show
-    @user = User.find(params[:id])
+    @user = User.where(id: params[:id]).first
     @posts = @user.posts.paginate(page: params[:page], per_page: 5)
-    @post = current_user.posts.build if signed_in?
+    @post = current_user.posts.new if signed_in?
   end
 
   def create

@@ -3,17 +3,24 @@
       <section>
         <%= render 'user_info' %>
       </section>
+      
       <section>
-        <%= render 'posts/post_form' %>
+      <% if @posts.first.user==current_user %>
+        <%= render partial: 'posts/post_form' %>
+      <% end %>
       </section>
     </aside>
 
     <div class="span9">
       <h3>Post Feed (<%=pluralize(@posts.count, "post")%>)</h3>
+      
       <div id="post_feed">
-      <%= render 'posts/post_feed' %>
+        <%= render 'posts/post_feed' %>
       </div>
-      <%= will_paginate @posts %>
-    </div>
 
+      <div class="pagination">
+          <%= will_paginate @posts %>
+      </div>
+
+    </div>
   </div>

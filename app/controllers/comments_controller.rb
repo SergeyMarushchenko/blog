@@ -5,9 +5,8 @@ class CommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.create(comment_params)
-    @comment.user_id = current_user.id
-    @posts = Post.where("user_id=?", current_user.id )
-    @feed_items = current_user.feed.paginate(page: params[:page], per_page: 5)
+    @comment.user_id = current_user.id    
+    @posts = @post.user.posts.paginate(page: params[:page], per_page: 5)
     
     respond_to do |format|
     if @comment.save

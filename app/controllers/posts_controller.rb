@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
   before_action :signed_in_user
   before_action :correct_user, only: :destroy
-
+  respond_to :html, :js
+  
   def create
     @post = current_user.posts.new(post_params)
     @user = current_user
@@ -13,16 +14,21 @@ class PostsController < ApplicationController
       format.js
       format.json {}
     else
-      format.html { render 'static_pages/home' 
-                              @feed_items = [] }
-      format.json { }
+      format.html { redirect_to :back }
+      format.json {}
     end
   end
   end
 
   def destroy
     @post.destroy
-    redirect_to user_path(current_user)
+    @posts = current_user.posts.paginate(page: params[:page], per_page: 5)
+
+    respond_to do |format|
+      format.html { redirect_to user_path(current_user) }
+      format.js
+      format.json {}
+    end
   end
 
   private
