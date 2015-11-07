@@ -1,5 +1,9 @@
-<li post_id="<%=post.id %>">
-  <span class="post_title"><%= post.title %></span>
+<li id="<%= post.id %>" style = "list-style-type: none">
+  <%= image_tag post.user.avatar.url(:small) %>
+  <span class="user">
+    <%= link_to post.user.name, post.user %>
+  </span>
+  <span class="content"><h1><%= post.title %></h1></span>
   <span class="content"><%= post.content %></span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(post.created_at) %> ago.
@@ -8,19 +12,16 @@
     <span class="deletePost">delete</span>
   <% end %>
 
+  <div id="comments">
+    <ul>
+      <%= render post.comments %>
+    <ul>
+  </div>
 
+  <br>
+  <div id="comment_form">
+    <%= render partial: 'comments/comment_form', locals: { post: post } %>
+  </div>
 
-
-<div id="comments">
-	<%= render post.comments %>
-</div>
-
-<br>
-
-	<%= form_for([post, post.comments.build], remote: true) do |f| %>
-		<%= f.text_area :content, placeholder: "enter comment here" %>
-		<%= f.submit "Comment!", class: "btn"%>
-	<% end %>
 
 </li>
-

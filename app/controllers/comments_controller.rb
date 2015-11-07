@@ -7,7 +7,8 @@ class CommentsController < ApplicationController
     @comment = @post.comments.create(comment_params)
     @comment.user_id = current_user.id
     @posts = Post.where("user_id=?", current_user.id )
-
+    @feed_items = current_user.feed.paginate(page: params[:page], per_page: 5)
+    
     respond_to do |format|
     if @comment.save
       format.html { redirect_to :back }

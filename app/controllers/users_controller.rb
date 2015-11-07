@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.paginate(page: params[:page], per_page: 5)
-    @all_comments = Comment.all
+    @post = current_user.posts.build if signed_in?
   end
 
   def create

@@ -1,31 +1,19 @@
+  <div class="row">
+    <aside class="span3">
+      <section>
+        <%= render 'user_info' %>
+      </section>
+      <section>
+        <%= render 'posts/post_form' %>
+      </section>
+    </aside>
 
-<% provide(:title, @user.name) %>
-<div class = "row">
-  <aside class = "span4">
-    <section>
-      <%= 
-         if @user.avatar?
-            image_tag @user.avatar.url(:large)
-         else
-            image_tag "missing.jpeg", size: "600"
-         end
-      %> 
-        <h1>
-          <%= @user.name %>
-        </h1>
-        <%= @user.email %>
-        <span>
-          <h1><%= link_to "My Profile", root_path %></h1>
-        </span>
-    </section>
-  </aside>
-  <div class="span8">
-    <% if @user.posts.any? %>
-      <h3>Posts (<%= @user.posts.count %>)</h3>
-      <ul id="posts" style="list-style: none;">
-        <%= render @posts %>
-      </ul>
+    <div class="span9">
+      <h3>Post Feed (<%=pluralize(@posts.count, "post")%>)</h3>
+      <div id="post_feed">
+      <%= render 'posts/post_feed' %>
+      </div>
       <%= will_paginate @posts %>
-    <% end %>
+    </div>
+
   </div>
-</div>

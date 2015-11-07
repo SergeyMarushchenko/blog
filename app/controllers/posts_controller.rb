@@ -3,9 +3,9 @@ class PostsController < ApplicationController
   before_action :correct_user, only: :destroy
 
   def create
-    @post = current_user.posts.build(post_params)
+    @post = current_user.posts.new(post_params)
     @user = current_user
-    @feed_items = current_user.feed
+    @posts = current_user.posts.paginate(page: params[:page], per_page: 5)
     
     respond_to do |format|
     if @post.save

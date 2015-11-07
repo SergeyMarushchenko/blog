@@ -1,22 +1,5 @@
 <% if signed_in? %>
-  <div class="row">
-    <aside class="span3">
-      <section>
-        <%= render 'shared/user_info' %>
-      </section>
-      <section>
-        <%= render 'shared/post_form' %>
-      </section>
-    </aside>
-
-    <div class="span9">
-      <h3>Post Feed</h3>
-      <div id="user_feed">
-      <%= render 'shared/feed' %>
-      </div>
-    </div>
-
-  </div>
+  <%= controller.redirect_to user_path(current_user) %>
 <% else %>
 
 <div class = "center hero-unit">
