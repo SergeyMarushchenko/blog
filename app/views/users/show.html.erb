@@ -5,7 +5,7 @@
       </section>
       
       <section>
-      <% if @posts.first.user==current_user %>
+      <% if @user == current_user %>
         
         <div id="new_post" class="btn btn-large btn-info">
           Create a New Post

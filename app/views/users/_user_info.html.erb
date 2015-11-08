@@ -1,18 +1,18 @@
 <div class="well well-sm">  
-  <%= 
+  <div align="center"><%= 
      if @user.avatar?
         image_tag @user.avatar.url(:medium)
      else
         image_tag "missing.jpeg", size: "300"
      end
-  %>
+  %></div>
 </div>
 
   <h1><%= @user.name %></h1>
 
 
 <span>
-  <% unless @user = current_user %> 
+  <% unless @user == current_user %> 
     <%= link_to "back to my profile", current_user %>
   <% end %>
 </span>

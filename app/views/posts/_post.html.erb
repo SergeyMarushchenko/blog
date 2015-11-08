@@ -19,11 +19,11 @@
     <ul>
   </div>
 
-  <div type="" class="new_comment label label-info">comment the post...</div>
+  <span class="new_comment label label-info" comment_form_id="<%= post.id %>">comment the post...</span>
 
-  <div style="display:none;" class="comment_form">
+  <span style="display:none;" class="comment_form">
     <%= render partial: 'comments/comment_form', locals: { post: post } %>
-  </div>
+  </span>
 
 
 </li>
