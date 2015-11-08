@@ -1,3 +1,4 @@
+<div class="well well-sm">  
   <%= 
      if @user.avatar?
         image_tag @user.avatar.url(:medium)
@@ -5,9 +6,10 @@
         image_tag "missing.jpeg", size: "300"
      end
   %>
-<h1>
-  <%= @user.name %>
-</h1>
+</div>
+
+  <h1><%= @user.name %></h1>
+
 
 <span>
   <% unless @user = current_user %> 
@@ -15,6 +17,9 @@
   <% end %>
 </span>
 
+
 <span>
   <%= pluralize(@user.posts.count, "post") %>
 </span>
+
+

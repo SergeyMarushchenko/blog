@@ -1,4 +1,5 @@
-<li post_id="<%= post.id %>" style = "list-style-type: none">
+<li post_id="<%= post.id %>" style = "list-style-type: none" class="posts">
+
   <%= image_tag post.user.avatar.url(:small) %>
   <span class="user">
     <%= link_to post.user.name, post.user %>
@@ -12,14 +13,15 @@
     <span class="deletePost">delete</span>
   <% end %>
 
-  <div id="comments">
+  <div>
     <ul>
       <%= render post.comments %>
     <ul>
   </div>
 
-  <br>
-  <div id="comment_form">
+  <div type="" class="new_comment label label-info">comment the post...</div>
+
+  <div style="display:none;" class="comment_form">
     <%= render partial: 'comments/comment_form', locals: { post: post } %>
   </div>
 

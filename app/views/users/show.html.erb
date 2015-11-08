@@ -1,5 +1,5 @@
   <div class="row">
-    <aside class="span3">
+    <aside class="span4">
       <section>
         <%= render 'user_info' %>
       </section>
@@ -19,14 +19,14 @@
       </section>
     </aside>
 
-    <div class="span9">
+    <div class="span8">
       <h3>Post Feed (<%=pluralize(@posts.count, "post")%>)</h3>
       
-      <div id="post_feed">
+      <div id="post_feed" class="posts">
         <%= render 'posts/post_feed' %>
       </div>
 
-      <div class="pagination">
+      <div id="pagination">
           <%= will_paginate @posts %>
       </div>
 

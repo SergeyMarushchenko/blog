@@ -1,4 +1,5 @@
-@import "bootstrap";
+ @import "bootstrap";
+
 
 $grayMediumLight: #eaeaea;
 
@@ -193,7 +194,7 @@ input {
 
   li {
     padding: 10px 0;
-    border-top: 1px solid #e8e8e8;
+    border-top: 1px solid #d8d8d8;
   }
 }
 .content {
@@ -238,5 +239,9 @@ aside {
 
 .deleteComment, .deletePost {
   color: blue;
+  cursor: pointer;
+}
+
+.new_comment {
   cursor: pointer;
 }

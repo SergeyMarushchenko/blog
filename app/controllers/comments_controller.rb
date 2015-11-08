@@ -2,6 +2,11 @@ class CommentsController < ApplicationController
 
   respond_to :html, :js
 
+  def new
+    @comment = Comment.new
+    @post = Post.find(params[:post_id])
+  end
+
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.create(comment_params)

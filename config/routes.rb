@@ -20,7 +20,7 @@ Blog::Application.routes.draw do
     resources :comments
   end
 
-  resources :comments, only: [:create, :destroy]
+  resources :comments, only: [:new, :create, :destroy]
 
 
 
