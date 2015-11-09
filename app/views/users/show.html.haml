@@ -1,0 +1,19 @@
+.row
+  %aside.span4
+    %section
+      = render 'user_info'
+    %section.text-center.well.well-sm
+      - if @user == current_user
+        #new_post.btn.btn-large.btn-info
+          Create a New Post
+      -else
+        = button_to "back to my profile", user_path(current_user), class: "btn btn-large btn-info", method: "get"
+
+      #post_form{ style: "display:none;" }
+        = render partial: 'posts/post_form'
+  .span8
+    %h3
+      Post Feed #{pluralize(@posts.count, 'post')}
+    #post_feed.posts
+      = render 'posts/post_feed'
+    = will_paginate @posts

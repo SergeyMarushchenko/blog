@@ -1,0 +1,33 @@
+.well.well-sm
+  %div{:align => "center"}
+    - if @user.avatar?                     
+      = image_tag @user.avatar.url(:medium)   
+    - else                                     
+      = image_tag "missing.jpeg", size: "300"  
+.well.well-sm
+  %table.table
+    %tr
+      %td
+        name:
+      %td
+        %h1= @user.name
+    %tr
+      %td
+        email:
+      %td
+        = @user.email
+    %tr
+      %td
+        posts:      
+      %td
+        = @user.posts.count
+    %tr
+      %td
+        comments:      
+      %td
+        = @user.comments.count
+    %tr
+      %td
+        registerd:      
+      %td.timestamp
+        = @user.created_at

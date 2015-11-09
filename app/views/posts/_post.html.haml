@@ -1,0 +1,17 @@
+%li.posts{:post_id => "#{post.id}", :style => "list-style-type: none"}
+  = image_tag post.user.avatar.url(:small)
+  %span.user
+    = link_to post.user.name, post.user
+  %span.content
+    %h1= post.title
+  %span.content= post.content
+  %span.timestamp
+    Posted #{time_ago_in_words(post.created_at)} ago.
+  - if current_user?(post.user)
+    %span.deletePost delete
+  %div
+    %ul
+      = render post.comments
+  %span.new_comment.label.label-info{:comment_form_id => "#{post.id}"} comment the post...
+  %span.comment_form{:style => "display:none;"}
+    = render partial: 'comments/comment_form', locals: { post: post }

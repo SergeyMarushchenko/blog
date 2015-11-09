@@ -1,0 +1,3 @@
+= form_for([post, post.comments.build], remote: true) do |f|
+  = f.text_area :content, placeholder: "enter comment here"
+  = f.submit "Comment!", class: "btn btn-success"

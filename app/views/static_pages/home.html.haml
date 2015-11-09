@@ -1,0 +1,12 @@
+- if signed_in?
+  = controller.redirect_to user_path(current_user)
+- else
+  .center.hero-unit
+    %h1
+      Welcome to the Sergey's Blog
+    %p
+    %h2
+      The test assignment for trainee position at
+      = succeed "." do
+        %a{:href => "http://http://sloboda-studio.com/ru/"} Sloboda Studio
+    = link_to "Sign up now", signup_path, class: "btn btn-large btn-primary"

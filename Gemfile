@@ -14,6 +14,7 @@ gem 'paperclip'
 group :development, :test do
   #gem 'sqlite3', '1.3.8'
   gem 'rspec-rails', '2.13.1'
+  gem "haml-rails", "~> 0.9"
 end
 
 group :test do

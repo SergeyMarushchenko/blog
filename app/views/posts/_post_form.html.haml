@@ -1,0 +1,8 @@
+= form_for(@post, remote: true) do |f|
+  = render 'shared/error_messages', object: f.object
+  %h1 Create a new post:
+  .title_field
+    = f.text_area :title, placeholder: "Enter the post title..."
+  .field
+    = f.text_area :content, placeholder: "Enter the post body..."
+  = f.submit "Post it", class: "btn btn-large btn-success"
