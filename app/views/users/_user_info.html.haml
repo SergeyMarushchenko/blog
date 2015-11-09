@@ -30,4 +30,11 @@
       %td
         registerd:      
       %td.timestamp
-        = @user.created_at
+        = @user.created_at.strftime("%e-%B-%Y")
+    %tr
+      %td
+        last activity:      
+      %td.timestamp
+        - unless @user.last_seen_at.nil? 
+          = "#{time_ago_in_words(@user.last_seen_at)} ago"
+      
