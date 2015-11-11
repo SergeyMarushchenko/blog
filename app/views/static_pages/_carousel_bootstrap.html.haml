@@ -1,0 +1,17 @@
+.carousel.slide{id: "carousel_bootstrap", data: {ride: "carousel"}}
+  %ol.carousel-indicators
+    %li.active{data: {target: "carousel_bootstrap", slide_to: "0"}}
+    %li{data: {target: "carousel_bootstrap", slide_to: "1"}}
+    %li{data: {target: "carousel_bootstrap", slid1_to: "2"}}
+  .carousel-inner
+    .item.active
+      %img{src: "http://placehold.it/850x500", alt: ""}
+    .item
+      %img{src: "http://placehold.it/850x500", alt: ""}
+    .item
+      %img{src: "http://placehold.it/850x500", alt: ""}
+
+  %a.left.carousel-control{href: "#carousel_bootstrap", data: {slide: "prev"}}
+    &lsaquo;
+  %a.right.carousel-control{href: "#carousel_bootstrap", data: {slide: "next"}}
+    &rsaquo; 

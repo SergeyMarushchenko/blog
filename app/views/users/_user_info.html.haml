@@ -1,9 +1,6 @@
 .well.well-sm
-  %div{:align => "center"}
-    - if @user.avatar?                     
-      = image_tag @user.avatar.url(:medium)   
-    - else                                     
-      = image_tag "missing.jpeg", size: "300"  
+  %div{align: "center"}
+    = image_tag @user.avatar, size: "300"  
 .well.well-sm
   %table.table
     %tr

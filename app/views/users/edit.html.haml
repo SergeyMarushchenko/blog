@@ -3,10 +3,6 @@
 %h1 Edit your profile
 .row
   .span4
-    = if @user.avatar?                         |
-         image_tag @user.avatar.url(:medium)   |
-      else                                     |
-         image_tag "missing.jpeg", size: "300" |
-      end                                      |
+    = image_tag @user.avatar, size: "300"                                   
   .span6.offset0
     = render 'user_form'

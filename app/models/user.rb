@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
 
-  has_attached_file :avatar, :styles => { :large => "600x600>", :medium => "300x300>", :thumb => "100x100>", :small => "50x50>" }
+  has_attached_file :avatar, styles: { large: "600x600>", medium: "300x300>", thumb: "100x100>", small: "50x50>" }, default_url: "missing.gif"
 
   validates_attachment :avatar, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
 

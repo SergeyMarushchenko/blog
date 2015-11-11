@@ -14,4 +14,24 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require turbolinks
+//= require owl.carousel
 //= require_tree .
+
+
+$(document).ready(function(){
+ $('#carousel_owl').owlCarousel({
+    items:4,
+    loop:true,
+    margin:10,
+    autoplay:true,
+    autoplayTimeout:2000,
+    autoplayHoverPause:true,
+    dots:true
+ });
+});
+
+$(document).ready(function(){
+ $('#carousel_bootstrap').carousel({
+   interval: 2000
+ });
+});

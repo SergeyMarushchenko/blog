@@ -1,5 +1,5 @@
-%li.posts{:post_id => "#{post.id}", :style => "list-style-type: none"}
-  = image_tag post.user.avatar.url(:small)
+%li.posts{post_id: "#{post.id}", style: "list-style-type: none"}
+  = image_tag post.user.avatar, size: "50"
   %span.user
     = link_to post.user.name, post.user
   %span.content
@@ -12,6 +12,6 @@
   %div
     %ul
       = render post.comments
-  %span.new_comment.label.label-info{:comment_form_id => "#{post.id}"} comment the post...
-  %span.comment_form{:style => "display:none;"}
+  %span.new_comment.label.label-info{comment_form_id: "#{post.id}"} comment the post...
+  %span.comment_form{style: "display:none;"}
     = render partial: 'comments/comment_form', locals: { post: post }
