@@ -1,15 +1,28 @@
 .carousel.slide{id: "carousel_bootstrap", data: {ride: "carousel"}}
   %ol.carousel-indicators
-    %li.active{data: {target: "carousel_bootstrap", slide_to: "0"}}
-    %li{data: {target: "carousel_bootstrap", slide_to: "1"}}
-    %li{data: {target: "carousel_bootstrap", slid1_to: "2"}}
+    %li.active{data: {target: "#carousel_bootstrap", slide_to: "0"}}
+    %li{data: {target: "#carousel_bootstrap", slide_to: "1"}}
+    %li{data: {target: "#carousel_bootstrap", slide_to: "2"}}
   .carousel-inner
     .item.active
-      %img{src: "http://placehold.it/850x500", alt: ""}
+      %img
+        = image_tag "post.jpg"
+        %div.carousel-caption
+          %p
+            AJAX allows creating/deleting of posts and comments without page reload
     .item
-      %img{src: "http://placehold.it/850x500", alt: ""}
+      %img
+        = image_tag "comment.jpg"
+        %div.carousel-caption
+          %p
+            Comment the posts in couple of clicks
     .item
-      %img{src: "http://placehold.it/850x500", alt: ""}
+      %img
+        = image_tag "browse.jpg"
+        %div.carousel-caption
+          %p
+            Brows the users and be informed about their activity
+
 
   %a.left.carousel-control{href: "#carousel_bootstrap", data: {slide: "prev"}}
     &lsaquo;

@@ -245,3 +245,31 @@ aside {
 .new_comment {
   cursor: pointer;
 }
+
+.carousel-indicators li {
+  background-color: #999 !important;
+  background-color: rgba(70,70,70,.25) !important;
+}
+
+.carousel-indicators .active {
+  background-color: #444 !important;
+}
+
+.carousel .item {
+  max-height: 100%;
+  max-height: 380px;
+  background-color: #777;
+}
+.carousel-inner > .item > img {
+ /*  position: absolute;*/
+  top: 0;
+  left: 0;
+  min-width: 40%;
+  max-width: 100%;
+  max-height: 380px;
+  width: auto;
+  margin-right:auto;
+  margin-left:auto;
+  height:auto;
+
+}
